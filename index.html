@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+        <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <title>Calculadora de horas</title>
+                <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+                <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+                <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+                <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+                <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+                <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+                <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+                <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+                <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+                <link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+                <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+                <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+                <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+                <link rel="manifest" href="manifest.json">
+                <meta name="msapplication-TileColor" content="#ffffff">
+                <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+                <meta name="theme-color" content="#ffffff">
+                <meta name="description" content="Introduce una hora de inicio y final para calcular el tiempo que ha pasado entre ambas." />
+                <link rel="stylesheet" href="css/w3.css"/>
+                <link rel="stylesheet" href="css/w3-theme-teal.css"/>
+                <link rel="stylesheet" href="css/font-awesome.min.css"/>
+                <script src="js/angular.min.js"></script>
+        </head>
+        <body class="w3-quarter">
+                <header class="w3-container w3-theme">
+                        <h2 style="text-transform:uppercase;">Calculadora de horas</h2>
+                </header>
+                <section    data-ng-app="hourcalc" data-ng-controller="calculate_hours" class="w3-container w3-light-grey w3-text-theme">
+                        <p>Hora de entrada:</p>
+                        <p>
+                                <select id="select_check_in_hours"
+                                        name="select_check_in_hours"
+                                        data-ng-options="hour.text for hour in data.hours track by hour.value"
+                                        data-ng-model="data.selected_check_in_hours"
+                                        data-ng-change="total_hours()">
+                                </select> H
+                                <select id="select_check_in_minutes"
+                                        name="select_check_in_minutes"
+                                        data-ng-options="minute.text for minute in data.minutes track by minute.value"
+                                        data-ng-model="data.selected_check_in_minutes"
+                                        data-ng-change="total_hours()">
+                                </select> M
+                        </p>
+                        <p>Hora de salida:</p>
+                        <p>
+                                <select id="select_check_out_hours"
+                                        name="select_check_out_hours"
+                                        data-ng-options="hour.text for hour in data.hours track by hour.value"
+                                        data-ng-model="data.selected_check_out_hours"
+                                        data-ng-change="total_hours()">
+                                </select> H
+                                <select id="select_check_out_minutes"
+                                        name="select_check_out_minutes"
+                                        data-ng-options="minute.text for minute in data.minutes track by minute.value"
+                                        data-ng-model="data.selected_check_out_minutes"
+                                        data-ng-change="total_hours()">
+                                </select> M
+                        </p>
+                        <p>Tiempo de descanso:</p>
+                        <p>
+                                <select id="select_rest_hours"
+                                        name="select_rest_hours"
+                                        data-ng-options="hour.text for hour in data.hours track by hour.value"
+                                        data-ng-model="data.selected_rest_hours"
+                                        data-ng-change="total_hours()">
+                                </select> H
+                                <select id="select_rest_minutes"
+                                        name="select_rest_minutes"
+                                        data-ng-options="minute.text for minute in data.minutes track by minute.value"
+                                        data-ng-model="data.selected_rest_minutes"
+                                        data-ng-change="total_hours()">
+                                </select> M
+                        </p>
+                        <p class="w3-text-theme">Tiempo total: <span class="w3-teal w3-large">{{data.total_hours}}</span> horas y <span class="w3-teal w3-large">{{data.total_minutes}}</span> minutos.</p>
+                </section>
+                <footer class="w3-container w3-theme">
+                        <p>Amistosamente desarrollada por <a href="https://twitter.com/g0ldstripes" target="_blank">@g0ldstripes</a>  <i class="fa fa-twitter"></i></p>
+                </footer>
+                <script src="js/hourcalc.js"></script>
+        </body>
+</html>
